@@ -20,7 +20,7 @@ int main(void)
 		}
 	while
 		(c < 'g') {
-			putchar(C);
+			putchar(c);
 			c++;
 		}
 	putchar('\n');
