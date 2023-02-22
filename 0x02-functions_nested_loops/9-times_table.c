@@ -13,7 +13,7 @@ void times_table(void)
 	{
 		while (s <= e)
 		{
-			int product = * s;
+			int product = count * s;
 
 			if (s != 0)
 			{
