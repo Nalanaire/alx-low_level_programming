@@ -2,9 +2,9 @@
 
 /**
  * _strcat - concantenate two strings
- * @dest: destination
- * @src: source
- * Return: void
+ * @dest: copy to
+ * @src: copy from
+ * Return: pointer to dest
  */
 
 char *_strcat(char *dest, char *src)
@@ -24,7 +24,6 @@ char *_strcat(char *dest, char *src)
 		i++;
 		j++;
 	}
-
 	dest[1] = '\0';
 	return (dest);
 }
