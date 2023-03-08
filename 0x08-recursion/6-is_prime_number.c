@@ -1,9 +1,10 @@
 #include "main.h"
 
-int check_prime(int, int);
+int is_prime_number(int n);
+int check_prime(int n, int i);
 /**
+ * is_prime_number - prime identifier
  * @n: number
- * is_prime_number -> prime identifier
  */
 int is_prime_number(int n)
 {
@@ -11,10 +12,10 @@ int is_prime_number(int n)
 }
 
 /**
- * check_prime -> it check prime numbers
+ * check_prime - it check prime numbers
  * @n: number
  * @i: iterator
- * Return: a 1 or 0
+ * Return: 1 or 0
  */
 int check_prime(int n, int i)
 {
