@@ -45,7 +45,7 @@ int op_div(int a, int b)
 }
 
 /**
- * op_mul - calculate the remainder of the two intergers
+ * op_mod - calculate the remainder of the two intergers
  * @a: firts interger
  * @b: second interger
  * Return: difference of a and b

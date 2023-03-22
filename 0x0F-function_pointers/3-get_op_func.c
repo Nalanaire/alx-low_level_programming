@@ -4,7 +4,6 @@
  * get_op_func - function pointer that selects the correct function to perfom
  * the operation asked by the user
  * @s: the operation given by user
- * 
  * Return: pointer yo the function that corresponds to the
  * operator given as parameter
  */
