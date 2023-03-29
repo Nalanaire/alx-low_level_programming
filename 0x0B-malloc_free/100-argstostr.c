@@ -3,36 +3,47 @@
 #include <stdlib.h>
 
 /**
- * print_tab - Prints an array of string
- * @tab: The array to print
+ * argstostr - function that concatenates all the arguments of your program
  *
- * Return: nothing
- */
-void print_tab(char **tab)
-{
-	int i;
-
-	for (i = 0; tab[i] != NULL; ++i)
-	{
-		printf("%s\n", tab[i]);
-	}
-}
-
-/**
- * main - check the code for Holberton School students.
+ * @ac: argument count
+ * @av: pointer to a string of pointers to strings
  *
- * Return: 1 if an error occurred, 0 otherwise
+ * Return: address of the newly allocated memory
  */
-int main(void)
-{
-	char **tab;
 
-	tab = strtow("      Holberton School         #cisfun      ");
-	if (tab == NULL)
+char *argstostr(int ac, char **av)
+{
+	int i, j, k;
+	int sumlen = 0;
+	char *arg_concat;
+
+	if (ac == 0 || av == NULL)
+		return (NULL);
+
+	for (i = 0; i < ac; i++)
 	{
-		printf("Failed\n");
-		return (1);
+		for (j = 0; av[i][j] != '\0'; j++)
+			sumlen++;
+		sumlen++;
 	}
-	print_tab(tab);
-	return (0);
+	sumlen++;
+
+	arg_concat = malloc(sumlen * sizeof(char));
+	if (arg_concat == NULL)
+	{
+		free(arg_concat);
+		return (NULL);
+	}
+
+	k = 0;
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++, k++)
+		{
+			arg_concat[k] = av[i][j];
+		}
+		arg_concat[k] = '\n';
+		k++;
+	}
+	return (arg_concat);
 }
