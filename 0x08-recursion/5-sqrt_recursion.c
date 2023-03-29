@@ -1,31 +1,26 @@
 #include "main.h"
-
-int actual_sqrt_recursion(int n, int i);
-
 /**
- * _sqrt_recursion - returns natural square root
- * @n: number to calculate
- * Return: resulting square root
+ * check_divisor - find square root
+ * @a: main number
+ * @b: divisor to check if its a square root
+ * Return: natural square root or -1
+ */
+int check_divisor(int a, int b)
+{
+	if (b * b == a)
+		return (b);
+	if (b * b > a)
+		return (-1);
+	return (check_divisor(a, b + 1));
+}
+/**
+ * _sqrt_recursion - input
+ * @n: number to check for natural square root
+ * Return: natural square root or -1
  */
 int _sqrt_recursion(int n)
 {
-	if (n < 0)
+	if (n > 1 && n < 4)
 		return (-1);
-	return (actual_sqrt_recursion(n, 0));
-}
-
-/**
- * actual_sqrt_recursion - return to find the natural
- * square root of a number
- * @n: number to calculate
- * @i: iterator
- * Return: resulting square root
- */
-int actual_sqrt_recursion(int n, int i)
-{
-	if (i * i > n)
-		return (-1);
-	if (i * i == n)
-		return (1);
-	return (actual_sqrt_recursion(n, i + 1));
+	return (check_divisor(n, 1));
 }
