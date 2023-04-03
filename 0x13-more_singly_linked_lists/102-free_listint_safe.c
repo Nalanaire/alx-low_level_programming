@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 /**
  * free_listint_safe - frees linked list safe version
  * @h: input head of linked list
