@@ -4,35 +4,32 @@
 #include <string.h>
 
 /**
- * print_listint_safe - function that prints a listint_t linked list
- * @head: pointer to the struct listint_t
- *
- * Return: size_t, number of nodes in the linked list
+ * print_listint_safe - prints linked list
+ * @head: beginning of linked list
+ * Return: number of elements in linked list
  */
-
 size_t print_listint_safe(const listint_t *head)
 {
-	int diff = 0;
-	size_t count;
-	const listint_t *current;
+	size_t i = 0, j;
+	const listint_t *temp_h = head, *check_next;
 
-	current = head;
-
-	count = 0;
-	while (current != NULL)
+	while (temp_h)
 	{
-		count++;
-		diff = current - current->next;
-		printf("[%p] %i\n", (void *)current, current->n);
-		if (diff > 0)
+		printf("[%p] %d\n", (void *)temp_h, temp_h->n);
+		i++;
+		temp_h = temp_h->next;
+		check_next = head;
+		j = 0;
+		while (j < i)
 		{
-			current = current->next;
-		}
-		else
-		{
-			printf("-> [%p] %i\n", (void *)current->next, current->next->n);
-			break;
+			if (temp_h == check_next)
+			{
+				printf("-> [%p] %d\n", (void *)temp_h, temp_h->n);
+				return (i);
+			}
+			check_next = check_next->next;
+			j++;
 		}
 	}
-	return (count);
+	return (i);
 }
